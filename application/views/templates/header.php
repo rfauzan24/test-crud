@@ -14,7 +14,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand" href="#">Test CRUD</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,6 +27,9 @@
                     <a class="nav-item nav-link" href="<?= base_url(); ?>guru">Guru</a>
                     <a class="nav-item nav-link" href="<?= base_url(); ?>kelas">Kelas</a>
                     <!-- <a class="nav-item nav-link float-right" href="#">Log Out</a> -->
+
+                    <a class="nav-item nav-link float-right" href="<?php echo base_url('index.php/auth/logout'); ?>">Logout</a>
+
                 </div>
             </div>
         </div>
