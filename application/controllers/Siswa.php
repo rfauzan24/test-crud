@@ -31,6 +31,40 @@ class Siswa extends CI_Controller
             $this->load->view('templates/footer');
         } else {
             $this->Siswa_model->tambahDataSiswa();
+            $this->session->set_flashdata('flash', 'Ditambahkan');
+            redirect('siswa');
+        }
+    }
+
+    public function hapus($id_siswa)
+    {
+        $this->Siswa_model->hapusDataSiswa($id_siswa);
+        $this->session->set_flashdata('flash', 'Dihapus');
+        redirect('siswa');
+    }
+
+    public function detail($id_siswa)
+    {
+        $data['judul'] = 'Detail Data Siswa';
+        $data['siswa'] = $this->Siswa_model->getSiswaById($id_siswa);
+        $this->load->view('templates/header', $data);
+        $this->load->view('siswa/detail', $data);
+        $this->load->view('templates/footer');
+    }
+    public function ubah($id_siswa)
+    {
+        $data['judul'] = 'Form Ubah Data Siswa';
+        $data['siswa'] = $this->Siswa_model->getSiswaById($id_siswa);
+        $data['jenis_kelamin'] = ['Laki-laki', 'Perempuan'];
+        $this->form_validation->set_rules('nama_siswa', 'Nama', 'required');
+        $this->form_validation->set_rules('nis', 'NIS', 'required|numeric');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('templates/header', $data);
+            $this->load->view('siswa/ubah', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $this->Siswa_model->ubahDataSiswa();
+            $this->session->set_flashdata('flash', 'Diubah');
             redirect('siswa');
         }
     }
