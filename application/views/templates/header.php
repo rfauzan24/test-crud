@@ -24,7 +24,9 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link" href="<?= base_url(); ?>">Home <span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="<?= base_url(); ?>siswa">Siswa</a>
-                    <a class="nav-item nav-link" href="#">About</a>                    
+                    <a class="nav-item nav-link" href="<?= base_url(); ?>guru">Guru</a>
+                    <a class="nav-item nav-link" href="<?= base_url(); ?>kelas">Kelas</a>
+                    <!-- <a class="nav-item nav-link float-right" href="#">Log Out</a> -->
                 </div>
             </div>
         </div>
